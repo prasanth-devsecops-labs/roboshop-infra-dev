@@ -6,7 +6,7 @@ resource "aws_instance" "mongodb" {
   tags = local.mongodb_final_tags
 }
 
-resource "terraform_data" "name" {
+resource "terraform_data" "bootstrap_mongodb" {
   triggers_replace = [aws_instance.mongodb.id]
 
 connection {
@@ -24,6 +24,37 @@ provisioner "remote-exec" {
     inline = [
       "chmod +x /tmp/bootstrap.sh",
       "sudo sh /tmp/bootstrap.sh mongodb"
+     ]
+  }
+}
+
+
+resource "aws_instance" "redis" {
+  ami           = local.ami_id
+  instance_type = "t3.micro"
+  subnet_id = local.database_subnet_id
+  vpc_security_group_ids = [local.redis_sg_id]
+  tags = local.redis_final_tags
+}
+
+resource "terraform_data" "bootstrap_redis" {
+  triggers_replace = [aws_instance.redis.id]
+
+connection {
+    type = "ssh"
+    user = "ec2-user"
+    password = "DevOps321"
+    host = aws_instance.redis.private_ip
+}
+
+provisioner "file" {
+  source = "bootstrap.sh"
+  destination = "/tmp/bootstrap.sh"
+}
+provisioner "remote-exec" {
+    inline = [
+      "chmod +x /tmp/bootstrap.sh",
+      "sudo sh /tmp/bootstrap.sh redis"
      ]
   }
 }

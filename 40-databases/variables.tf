@@ -8,12 +8,12 @@ variable "environment" {
   type    = string
 }
 
-variable "bastion_tags" {
-  type = map
-  default = {}
+variable "zone_id" {
+    type = string
+    default = "Z082901534H7OC4NT02WB"
 }
 
-variable "bastion_role_name" {
-  type = string
-  default = "RoboShopDevBastion"
+variable "domain_name" {
+    type = string
+    default = "prashum.online"
 }
