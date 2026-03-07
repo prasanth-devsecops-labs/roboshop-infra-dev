@@ -9,4 +9,5 @@ yum install -y yum-utils
 yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
 yum -y install terraform
 
-# why bastion connection refused, and why it stopping while modifying resource? to check.
+# why bastion connection refused, and why it stopping while modifying resource? to check. only initial 
+# it worked, modifications not happening need to check.
