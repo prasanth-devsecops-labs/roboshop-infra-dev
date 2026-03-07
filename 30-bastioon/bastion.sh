@@ -1,7 +1,7 @@
 #!/bin/bash
 # We are creating 50GB root disk, only 20GB is partitioned
 # Remaining 30GB need to extend using belwo commands
-growpart /dev/nvme0n1p4 4
+growpart /dev/nvme0n1 4
 lvextend -r -L +30G /dev/mapper/RootVG-homeVol
 xfs_growfs /home
 
