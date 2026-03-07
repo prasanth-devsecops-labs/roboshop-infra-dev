@@ -6,7 +6,6 @@ locals {
   }
 
   mongodb_final_tags = merge(
-    var.bastion_tags,
     local.common_tags,
     {
         Name = "${var.project}-${var.environment}-mongodb"
