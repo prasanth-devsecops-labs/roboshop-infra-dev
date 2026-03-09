@@ -48,4 +48,4 @@ resource "aws_iam_instance_profile" "bastion" {
   role = aws_iam_role.bastion.name
 }
 
-# mongodb-dev.prashump.online
+# mongodb-dev.prashum.online
