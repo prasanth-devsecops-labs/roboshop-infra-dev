@@ -1,6 +1,7 @@
 module "sg" {
   for_each = var.security_groups
-  source = "../../terraform-aws-sg"
+  source = "git::https://github.com/prasanth-devsecops-labs/terraform-aws-sg.git?ref=main"
+  # source = "../../terraform-aws-sg"
   project = var.project_name
   environment = var.env
   sg_name = replace(each.key, "_", "-")
