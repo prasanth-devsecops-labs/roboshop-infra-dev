@@ -90,7 +90,7 @@ resource "aws_launch_template" "catalogue" {
     }
 
     tag_specifications {
-        resource_type = "volumes"
+        resource_type = "volume"
         tags = merge(
             {
                 Name = "${var.project}-${var.environment}-catalogue"
