@@ -30,6 +30,17 @@ data "aws_ssm_parameter" "user_sg_id" {
   name = "/${var.project_name}/${var.env}/user_sg_id"
 }
 
+data "aws_ssm_parameter" "cart_sg_id" {
+  name = "/${var.project_name}/${var.env}/cart_sg_id"
+}
+
+data "aws_ssm_parameter" "shipping_sg_id" {
+  name = "/${var.project_name}/${var.env}/shipping_sg_id"
+}
+
+data "aws_ssm_parameter" "payment_sg_id" {
+  name = "/${var.project_name}/${var.env}/payment_sg_id"
+}
 data "aws_ssm_parameter" "backend_alb_sg_id" {
   name = "/${var.project_name}/${var.env}/backend_alb_sg_id"
 }
