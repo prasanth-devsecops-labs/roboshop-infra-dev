@@ -30,6 +30,8 @@ variable "security_groups" {
      "frontend_alb" = { description = "SG for frontend_alb" }
      # Bastion
      "bastion" = { description = "SG for bastion" }
+     # Openvpn
+     "openvpn" = { description = "SG for openvpn"}
   }
   
 }

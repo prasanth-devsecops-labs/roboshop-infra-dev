@@ -52,3 +52,7 @@ data "aws_ssm_parameter" "frontend_alb_sg_id" {
 data "aws_ssm_parameter" "frontend_sg_id" {
   name = "/${var.project_name}/${var.env}/frontend_sg_id"
 }
+
+data "aws_ssm_parameter" "openvpn_sg_id" {
+  name = "/${var.project_name}/${var.env}/openvpn_sg_id"
+}
